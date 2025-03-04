@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db');
 
-const Voter = sequelize.define(
+const Candidate = sequelize.define(
   'Candidate',
   {
     id: {
@@ -37,4 +37,4 @@ const Voter = sequelize.define(
   },
 );
 
-module.exports = Voter;
+module.exports = Candidate;
