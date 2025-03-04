@@ -55,11 +55,20 @@ Para acceder a la documentación entras a [/v1/api/docs/#/](http://localhost:300
 
 ### Ejemplos
 Endpoints de la APIRestFul
-![image](https://github.com/user-attachments/assets/b216f7f8-6513-45c2-82e1-e164980e23e2)
+![image](https://github.com/user-attachments/assets/9d61fd79-0b9e-4f76-851b-d9694f5305d1)
 
+Obtener Candidatos
+![image](https://github.com/user-attachments/assets/f18dbbdd-6a27-47d0-b2c3-5d3f1ee8ce4d)
 
-Ver votos realizados
-![image](https://github.com/user-attachments/assets/fb9d55d6-5fd2-48fa-b1e5-e4df4b72440a)
+Obtener Votantes
+![image](https://github.com/user-attachments/assets/cb0e3675-d22f-465a-ac7b-e6728ac4fe01)
+
+Obtener votos realizados
+![image](https://github.com/user-attachments/assets/e880a915-59fd-4bf3-8279-81db2e5469bc)
+
+Obtener estadisticas
+![image](https://github.com/user-attachments/assets/811c92c4-fd74-4a76-8174-9e029a0b087f)
+
 
 
 
