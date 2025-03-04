@@ -12,7 +12,11 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000/v1/api',
+        //para poder acceder a la documentación es necesario tener en cuenta esto.
+        //Ejecucion con npm, sin docker
+        // url: 'http://localhost:3000/v1/api', 
+        //Ejecucion Con docker
+        url: 'http://host.docker.internal:3000/v1/api', 
         description: 'Servidor local',
       },
     ],
@@ -24,7 +28,7 @@ const swaggerSpec = swaggerJsdoc(options);
 
 const swaggerDocs = (app) => {
   app.use('/v1/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  console.log('📄 Swagger disponible en http://localhost:3000/api/docs');
+  console.log('📄 Swagger disponible en http://localhost:3000/v1/api/docs');
 };
 
 module.exports = swaggerDocs;

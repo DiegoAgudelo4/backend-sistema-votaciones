@@ -60,4 +60,26 @@ router.post('/', createVote);
  */
 router.get('/statistics', getVoteStatistics);
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Vote:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID único del voto
+ *         voter_id:
+ *           type: integer
+ *           description: ID del votante.
+ *         candidate_id:
+ *           type: integer
+ *           description: Id del Candidato Votado
+ *       example:
+ *         id: 1
+ *         voter_id: 1
+ *         candidate_id: 2
+ */
+
 module.exports = router;
