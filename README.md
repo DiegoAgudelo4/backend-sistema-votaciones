@@ -53,5 +53,16 @@ Ejecutar el script en la base de datos. (src/scripts)
 Si todo salió bien, el proyecto está corriendo en [localhost:3000](http://localhost:3000/).
 Para acceder a la documentación entras a [/v1/api/docs/#/](http://localhost:3000/v1/api/docs/#/)
 
+### Ejemplos
+Endpoints de la APIRestFul
+![image](https://github.com/user-attachments/assets/b216f7f8-6513-45c2-82e1-e164980e23e2)
+
+
+Ver votos realizados
+![image](https://github.com/user-attachments/assets/fb9d55d6-5fd2-48fa-b1e5-e4df4b72440a)
+
+
+
+
 
 
