@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const { getVoters } = require('../controllers/voterController');
+const { getVoters, createVoter, getVoterById, deleteVoter } = require('../controllers/voterController');
 
 /**
  * @swagger
@@ -25,8 +25,106 @@ const { getVoters } = require('../controllers/voterController');
  *         description: Lista de votantes obtenida con éxito.
  *       500:
  *         description: Error al obtener los votantes.
+ *   post:
+ *     summary: Registra un nuevo votante
+ *     tags: [Votantes]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: Nombre del votante
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: Correo electrónico único del votante
+ *     responses:
+ *       201:
+ *         description: Votante registrado con éxito.
+ *       400:
+ *         description: Datos de entrada inválidos.
+ *       500:
+ *         description: Error al registrar el votante.
  */
 
 router.get('/', getVoters);
+router.post('/', createVoter);
+
+/**
+ * @swagger
+ * /voters/{id}:
+ *   get:
+ *     summary: Obtiene un votante por ID
+ *     tags: [Votantes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del votante
+ *     responses:
+ *       200:
+ *         description: Datos del votante obtenidos con éxito.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Voter'
+ *       404:
+ *         description: Votante no encontrado.
+ *       500:
+ *         description: Error al obtener el votante.
+ *   delete:
+ *     summary: Eliminación lógica de un votante (available=false)
+ *     tags: [Votantes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del votante a eliminar
+ *     responses:
+ *       200:
+ *         description: Votante eliminado correctamente.
+ *       404:
+ *         description: Votante no encontrado.
+ *       500:
+ *         description: Error al eliminar el votante.
+ */
+
+router.get('/:id', getVoterById);
+router.delete('/:id', deleteVoter);
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Voter:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: ID único del votante
+ *         name:
+ *           type: string
+ *           description: Nombre del votante
+ *         email:
+ *           type: string
+ *           format: email
+ *           description: Correo electrónico único del votante
+ *       example:
+ *         id: 1
+ *         name: "Juan Pérez"
+ *         email: "juan@example.com"
+ *         has_voted: false
+ */
 
 module.exports = router;
