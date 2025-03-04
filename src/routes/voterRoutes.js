@@ -8,7 +8,7 @@ const { getVoters, createVoter, getVoterById, deleteVoter } = require('../contro
  * /voters:
  *   get:
  *     summary: Obtiene la lista de votantes con paginación
- *     tags: [Votantes]
+ *     tags: [Voters]
  *     parameters:
  *       - in: query
  *         name: page
@@ -27,7 +27,7 @@ const { getVoters, createVoter, getVoterById, deleteVoter } = require('../contro
  *         description: Error al obtener los votantes.
  *   post:
  *     summary: Registra un nuevo votante
- *     tags: [Votantes]
+ *     tags: [Voters]
  *     requestBody:
  *       required: true
  *       content:
@@ -62,7 +62,7 @@ router.post('/', createVoter);
  * /voters/{id}:
  *   get:
  *     summary: Obtiene un votante por ID
- *     tags: [Votantes]
+ *     tags: [Voters]
  *     parameters:
  *       - in: path
  *         name: id
@@ -83,7 +83,7 @@ router.post('/', createVoter);
  *         description: Error al obtener el votante.
  *   delete:
  *     summary: Eliminación lógica de un votante (available=false)
- *     tags: [Votantes]
+ *     tags: [Voters]
  *     parameters:
  *       - in: path
  *         name: id

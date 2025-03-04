@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS `candidate` (
 
 -- Volcando datos para la tabla sistema_votaciones.candidate: ~0 rows (aproximadamente)
 REPLACE INTO `candidate` (`id`, `name`, `email`, `party`, `votes`, `available`) VALUES
-	(1, 'Juan Pérez', 'juan.perez@azul.com', 'Partido Azul', 0, 0),
-	(2, 'María Gómez', 'maria.gomez@rojo.com', 'Partido Rojo', 3, 1),
-	(3, 'Carlos López', 'carolos.lopez@verde.com', 'Partido Verde', 0, 1),
+	(1, 'Juan Pérez', 'juan.perez@azul.com', 'Partido Azul', 0, 1),
+	(2, 'María Gómez', 'maria.gomez@rojo.com', 'Partido Rojo', 0, 1),
+	(3, 'Carlos López', 'carolos.lopez@verde.com', 'Partido Verde', 0, 1);
 
 -- Volcando estructura para procedimiento sistema_votaciones.updateVoter
 DELIMITER //
@@ -65,11 +65,11 @@ CREATE TABLE IF NOT EXISTS `vote` (
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla sistema_votaciones.vote: ~0 rows (aproximadamente)
-REPLACE INTO `vote` (`id`, `voter_id`, `candidate_id`) VALUES
-	(1, 3, 2),
-	(2, 4, 2),
-	(2, 5, 2),
-	(3, 6, 8);
+-- REPLACE INTO `vote` (`id`, `voter_id`, `candidate_id`) VALUES
+-- 	(1, 3, 2),
+-- 	(2, 4, 2),
+-- 	(2, 5, 2),
+-- 	(3, 6, 8);
 
 -- Volcando estructura para tabla sistema_votaciones.voter
 CREATE TABLE IF NOT EXISTS `voter` (
@@ -84,11 +84,11 @@ CREATE TABLE IF NOT EXISTS `voter` (
 
 -- Volcando datos para la tabla sistema_votaciones.voter: ~0 rows (aproximadamente)
 REPLACE INTO `voter` (`id`, `name`, `email`, `has_voted`, `available`) VALUES
-	(1, 'Ana Torres', 'ana.torres@example.com', 1, 0),
-	(2, 'Luis Martínez', 'luis.martinez@example.com', 1, 0),
-	(3, 'Sofía Ramírez', 'sofia.ramirez@example.com', 1, 1),
-	(4, 'Diego Fernández', 'diego.fernandez@example.com', 1, 1),
-	(5, 'Elena Gutiérrez', 'elena.gutierrez@example.com', 1, 1),
+	(1, 'Ana Torres', 'ana.torres@example.com', 0, 1),
+	(2, 'Luis Martínez', 'luis.martinez@example.com', 0, 1),
+	(3, 'Sofía Ramírez', 'sofia.ramirez@example.com', 0, 1),
+	(4, 'Diego Fernández', 'diego.fernandez@example.com', 0, 1),
+	(5, 'Elena Gutiérrez', 'elena.gutierrez@example.com', 0, 1);
 
 -- Volcando estructura para vista sistema_votaciones.voting_statistics
 -- Creando tabla temporal para superar errores de dependencia de VIEW
