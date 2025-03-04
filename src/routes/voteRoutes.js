@@ -1,5 +1,6 @@
 const express = require('express');
-const { getVotes, createVote} = require('../controllers/voteController');
+const { getVotes, createVote } = require('../controllers/voteController');
+const { getVoteStatistics } = require('../controllers/voteStatisticsController');
 
 const router = express.Router();
 
@@ -44,5 +45,19 @@ const router = express.Router();
 
 router.get('/', getVotes);
 router.post('/', createVote);
+
+/**
+ * @swagger
+ * /votes/statistics:
+ *   get:
+ *     summary: Obtiene estadísticas de votación.
+ *     tags: [Votes]
+ *     responses:
+ *       200:
+ *         description: Estadísticas obtenidas con éxito.
+ *       500:
+ *         description: Error al obtener estadísticas.
+ */
+router.get('/statistics', getVoteStatistics);
 
 module.exports = router;
