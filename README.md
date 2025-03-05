@@ -73,7 +73,10 @@ Obtener Votantes
 Obtener votos realizados
 ![image](https://github.com/user-attachments/assets/e880a915-59fd-4bf3-8279-81db2e5469bc)
 
-Obtener estadisticas
+Iniciar sesión
+![auth](https://github.com/user-attachments/assets/5593bfda-b2dc-4005-b525-48569d701458)
+
+Obtener estadisticas (debe enviar bearer token)
 ![image](https://github.com/user-attachments/assets/811c92c4-fd74-4a76-8174-9e029a0b087f)
 
 
