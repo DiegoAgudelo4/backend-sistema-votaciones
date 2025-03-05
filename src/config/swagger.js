@@ -1,6 +1,8 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
+require('dotenv').config();
+
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -12,14 +14,21 @@ const options = {
     },
     servers: [
       {
-        //para poder acceder a la documentación es necesario tener en cuenta esto.
-        //Ejecucion con npm, sin docker
-        // url: 'http://localhost:3000/v1/api', 
-        //Ejecucion Con docker
-        url: 'http://host.docker.internal:3000/v1/api', 
+        // entorno
+        url: `http://${process.env.PJ_HOST}:3000/v1/api`,
         description: 'Servidor local',
       },
     ],
+    components: {
+      securitySchemes: {
+        BearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: [{ BearerAuth: [] }],
   },
   apis: ['./src/routes/*.js'],
 };
@@ -28,7 +37,7 @@ const swaggerSpec = swaggerJsdoc(options);
 
 const swaggerDocs = (app) => {
   app.use('/v1/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  console.log('📄 Swagger disponible en http://localhost:3000/v1/api/docs');
+  console.log(`📄 Swagger disponible en http://${process.env.PJ_HOST}:3000/v1/api/docs`);
 };
 
 module.exports = swaggerDocs;

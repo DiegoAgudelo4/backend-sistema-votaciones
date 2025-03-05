@@ -10,6 +10,7 @@ const index = require('./api/index');
 const voterRoutes = require('./routes/voterRoutes');
 const candidateRoutes = require('./routes/candidateRoutes');
 const voteRoutes = require('./routes/voteRoutes');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use('/', index);
 app.use('/v1/api/voters', voterRoutes);
 app.use('/v1/api/candidates', candidateRoutes);
 app.use('/v1/api/votes', voteRoutes);
+app.use('/v1/api/auth', authRoutes);
 
 // agregar swagger
 swaggerDocs(app);
