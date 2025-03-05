@@ -34,6 +34,16 @@ Crea un API RESTful para gestionar un sistema de votaciones. El sistema debe man
 
 ![ModeloER](https://github.com/user-attachments/assets/3caacc32-7d00-4745-a440-7901707dcb4d)
 
+## Resultados
+Más ejemplos adjuntos al final del archivo
+
+###Endpoints de la APIRestFul
+![image](https://github.com/user-attachments/assets/9d61fd79-0b9e-4f76-851b-d9694f5305d1)
+
+## Despliegue
+El proyecto fue desplegado en AWS, el cual se puede encontrar en 
+[sistema de votaciones](http://54.87.130.78/v1/api/docs/) SUJETO A DISPONIBILIDAD
+
 ## Ejecucion del proyecto
 
 ### Consideraciones:
@@ -53,14 +63,7 @@ Ejecutar el script en la base de datos. (src/scripts)
 Si todo salió bien, el proyecto está corriendo en [localhost:3000](http://localhost:3000/).
 Para acceder a la documentación entras a [/v1/api/docs/#/](http://localhost:3000/v1/api/docs/#/)
 
-### Despliegue
-El proyecto fue desplegado en AWS, el cual se puede encontrar en 
-[sistema de votaciones](http://54.87.130.78/v1/api/docs/) SUJETO A DISPONIBILIDAD
-
 ### Ejemplos
-Endpoints de la APIRestFul
-![image](https://github.com/user-attachments/assets/9d61fd79-0b9e-4f76-851b-d9694f5305d1)
-
 Obtener Candidatos
 ![image](https://github.com/user-attachments/assets/f18dbbdd-6a27-47d0-b2c3-5d3f1ee8ce4d)
 
