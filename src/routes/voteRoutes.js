@@ -1,6 +1,7 @@
 const express = require('express');
 const { getVotes, createVote } = require('../controllers/voteController');
 const { getVoteStatistics } = require('../controllers/voteStatisticsController');
+const authenticateToken = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
@@ -52,13 +53,17 @@ router.post('/', createVote);
  *   get:
  *     summary: Obtiene estadísticas de votación.
  *     tags: [Votes]
+ *     security:
+ *       - BearerAuth: []
  *     responses:
  *       200:
  *         description: Estadísticas obtenidas con éxito.
+ *       401:
+ *         description: No autorizado, token inválido o ausente.
  *       500:
  *         description: Error al obtener estadísticas.
  */
-router.get('/statistics', getVoteStatistics);
+router.get('/statistics', authenticateToken, getVoteStatistics);
 
 /**
  * @swagger
