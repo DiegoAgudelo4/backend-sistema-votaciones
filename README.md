@@ -37,7 +37,7 @@ Crea un API RESTful para gestionar un sistema de votaciones. El sistema debe man
 ## Resultados
 Más ejemplos adjuntos al final del archivo
 
-###Endpoints de la APIRestFul
+### Endpoints de la APIRestFul
 ![image](https://github.com/user-attachments/assets/9d61fd79-0b9e-4f76-851b-d9694f5305d1)
 
 ## Despliegue
