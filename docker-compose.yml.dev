@@ -3,28 +3,30 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     container_name: api-votaciones
-    restart: always
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
     depends_on:
       db:
         condition: service_healthy
     environment:
-      - PORT=${PORT}
-      - DB_HOST=${DB_HOST}
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASS=${DB_PASS}
+      - PORT=3000
+      - DB_HOST=db
+      - DB_NAME=sistema_votaciones
+      - DB_USER=root
+      - DB_PASS=admin
 
   db:
     image: mysql:8.0
     container_name: mysql-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASS}
-      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sistema_votaciones
     ports:
       - "3306:3306"
     volumes:

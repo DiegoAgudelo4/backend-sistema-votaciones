@@ -17,7 +17,7 @@ const router = express.Router();
  *       500:
  *         description: Error al obtener los votos.
  *   post:
- *     summary: Registra un nuevo candidato
+ *     summary: Registra un nuevo Voto
  *     tags: [Votes]
  *     requestBody:
  *       required: true
@@ -44,7 +44,7 @@ const router = express.Router();
  *         description: Error al registrar el voto.
  */
 
-router.get('/', getVotes);
+router.get('/', authenticateToken, getVotes);
 router.post('/', createVote);
 
 /**
