@@ -41,6 +41,17 @@ const getVoterById = async (id) => {
   return response;
 };
 
+const getVoterEmail = async (email) => {
+  console.log("Email Recibido en service: "+ email)
+  const response = await Voter.findOne({
+    where: { email, available: true },
+    attributes: { exclude: ['available'] },
+  });
+  console.log("Encontrado: "+ response)
+
+  return response;
+};
+
 const deleteVoter = async (id) => {
   const voter = await Voter.findOne({ where: { id, available: true } });
   if (!voter) {
@@ -51,4 +62,4 @@ const deleteVoter = async (id) => {
   return voter;
 };
 
-module.exports = { getVoters, createVoter, getVoterById, deleteVoter };
+module.exports = { getVoters, createVoter, getVoterById, deleteVoter, getVoterEmail};

@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const { getVoters, createVoter, getVoterById, deleteVoter } = require('../controllers/voterController');
+const { getVoters, createVoter, getVoterById, deleteVoter, getVoterByEmail } = require('../controllers/voterController');
 
 /**
  * @swagger
@@ -98,9 +98,32 @@ router.post('/', createVoter);
  *         description: Votante no encontrado.
  *       500:
  *         description: Error al eliminar el votante.
+ * /voters/search/{email}:
+ *  get:
+ *     summary: Obtiene un votante por email
+ *     tags: [Voters]
+ *     parameters:
+ *       - in: path
+ *         name: email
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: email del votante
+ *     responses:
+ *       200:
+ *         description: Datos del votante obtenidos con éxito.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Voter'
+ *       404:
+ *         description: Votante no encontrado.
+ *       500:
+ *         description: Error al obtener el votante
  */
 
 router.get('/:id', getVoterById);
+router.get('/search/:email', getVoterByEmail);
 router.delete('/:id', deleteVoter);
 
 /**

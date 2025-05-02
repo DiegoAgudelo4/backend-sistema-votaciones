@@ -37,7 +37,25 @@ const createVoter = async (req, res) => {
 const getVoterById = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log("se está abriendo con id")
     const voter = await voterService.getVoterById(id);
+
+    if (!voter) {
+      response(res, 404, 'Votante no encontrado');
+      return;
+    }
+
+    response(res, 200, 'Votante encontrado', voter);
+  } catch (error) {
+    console.log(error);
+    response(res, 500, 'Error al obtener el votante');
+  }
+};
+const getVoterByEmail = async (req, res) => {
+  try {
+    const { email } = req.params;
+    console.log("Email Recibido en controller: "+ email)
+    const voter = await voterService.getVoterEmail(email);
 
     if (!voter) {
       response(res, 404, 'Votante no encontrado');
@@ -68,4 +86,4 @@ const deleteVoter = async (req, res) => {
   }
 };
 
-module.exports = { getVoters, createVoter, getVoterById, deleteVoter };
+module.exports = { getVoters, createVoter, getVoterById, deleteVoter, getVoterByEmail };
